@@ -1,15 +1,23 @@
+
+import React, { useState } from 'react';
 import '../styles/main.scss';
 
+
 function App() {
+  let [errors, setErrors] = useState('0');
+
+  let handleError = (ev) => { setErrors(errors++) };
+
   return (
     <div className="page">
       <header>
         <h1 className="header__title">Juego del ahorcado</h1>
       </header>
+      <button className="btn" onClick={handleError}>Incrementar</button>
       <main className="main">
         <section>
           <div className="solution">
-            <h2 className="title">Solución:</h2>
+            <h2 className="title">Solución: </h2>
             <ul className="letters">
               <li className="letter">k</li>
               <li className="letter">a</li>
@@ -24,7 +32,7 @@ function App() {
             </ul>
           </div>
           <div className="feedback">
-            <h2 className="title">Letras falladas:</h2>
+            <h2 className="title">Letras falladas: </h2>
             <ul className="letters">
               <li className="letter">f</li>
               <li className="letter">q</li>
@@ -33,8 +41,10 @@ function App() {
               <li className="letter">x</li>
             </ul>
           </div>
+
+
           <form className="form">
-            <label className="title" htmlFor="last-letter">Escribe una letra:</label>
+            <label className="title" htmlFor="last-letter">Escribe una letra: </label>
             <input
               autoComplete="off"
               className="form__input"
@@ -45,7 +55,7 @@ function App() {
             />
           </form>
         </section>
-        <section className="dummy error-5">
+        <section className={`dummy error-${errors}`}>
           <span className="error-13 eye"></span>
           <span className="error-12 eye"></span>
           <span className="error-11 line"></span>
@@ -60,6 +70,7 @@ function App() {
           <span className="error-2 line"></span>
           <span className="error-1 line"></span>
         </section>
+
       </main>
     </div>
   );
