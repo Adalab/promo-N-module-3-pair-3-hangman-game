@@ -1,19 +1,21 @@
-
-import React, { useState } from 'react';
-import '../styles/main.scss';
-
+import React, { useState } from "react";
+import "../styles/main.scss";
 
 function App() {
-  let [errors, setErrors] = useState('0');
+  let [errors, setErrors] = useState(0);
 
-  let handleError = (ev) => { setErrors(errors++) };
+  let handleError = () => {
+    setErrors((errors += 1));
+  };
 
   return (
     <div className="page">
       <header>
         <h1 className="header__title">Juego del ahorcado</h1>
       </header>
-      <button className="btn" onClick={handleError}>Incrementar</button>
+      <button className="btn" onClick={handleError}>
+        Incrementar
+      </button>
       <main className="main">
         <section>
           <div className="solution">
@@ -42,9 +44,10 @@ function App() {
             </ul>
           </div>
 
-
           <form className="form">
-            <label className="title" htmlFor="last-letter">Escribe una letra: </label>
+            <label className="title" htmlFor="last-letter">
+              Escribe una letra:{" "}
+            </label>
             <input
               autoComplete="off"
               className="form__input"
@@ -70,7 +73,6 @@ function App() {
           <span className="error-2 line"></span>
           <span className="error-1 line"></span>
         </section>
-
       </main>
     </div>
   );
