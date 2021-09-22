@@ -8,15 +8,14 @@ function App() {
     setErrors((errors += 1));
   };
 
-  const [letter, setLetter] = useState("");
+  const [lastLetter, setLetter] = useState("");
 
   const handleLastLetter = (ev) => {
-    setLetter(ev.target.value);
-    if (letter) {
-    }
+    const inputValue = ev.target.value;
+    setLetter(inputValue);
   };
 
-  console.log(typeof letter);
+  console.log(lastLetter);
 
   return (
     <div className="page">
@@ -59,7 +58,8 @@ function App() {
               Escribe una letra:{" "}
             </label>
             <input
-              onKeyUp={handleLastLetter}
+              onChange={handleLastLetter}
+              value={lastLetter}
               autoComplete="off"
               className="form__input"
               maxLength="1"
