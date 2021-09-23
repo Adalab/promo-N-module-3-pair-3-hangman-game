@@ -8,6 +8,7 @@ function App() {
     setErrors((errors += 1));
   };
 
+  /*********/
   const [letter, setLetter] = useState("");
   //const regularExpression = /^[a-zA-Z]+(s*[a-zA-Z]*)*[a-zA-Z]+$/;
 
