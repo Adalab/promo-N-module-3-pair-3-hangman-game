@@ -9,14 +9,29 @@ function App() {
   };
 
   const [letter, setLetter] = useState("");
+  //const regularExpression = /^[a-zA-Z]+(s*[a-zA-Z]*)*[a-zA-Z]+$/;
+
+  /*function validarLetra(letter) {
+    let regex =
+      /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
+    return regex.exec(letter)[0];
+
+  }*/
+
+  //console.log(validarLetra(letter));
 
   const handleLastLetter = (ev) => {
     setLetter(ev.target.value);
-    if (letter) {
-    }
+    //console.log(regularExpression.exec(letter));
+    //var slash = /\//;
+    // console.log(letter.search(regularExpression));
+
+    var exp = /[a-zA-Z]\d*/;
+
+    console.log(exp.test(letter));
   };
 
-  console.log(typeof letter);
+  //console.log(typeof letter);
 
   return (
     <div className="page">
